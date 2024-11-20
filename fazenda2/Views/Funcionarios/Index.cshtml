@@ -1,0 +1,95 @@
+﻿@model IEnumerable<fazenda2.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Lista de Funcionários";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1 class="display-4 text-success">Funcionários</h1>
+    <p class="lead">Gerencie as informações dos funcionários cadastrados</p>
+</div>
+
+<div class="mb-4 text-right">
+    <a class="btn btn-success" asp-action="Create">Adicionar Funcionário</a>
+</div>
+
+<table class="table table-hover table-bordered text-center">
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().nome)</th>
+            <th>@Html.DisplayNameFor(model => model.First().cpf)</th>
+            <th>@Html.DisplayNameFor(model => model.First().email)</th>
+            <th>@Html.DisplayNameFor(model => model.First().senha)</th>
+            <th>@Html.DisplayNameFor(model => model.First().salario)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.cpf)</td>
+                <td>@Html.DisplayFor(modelItem => item.email)</td>
+                <td>@Html.DisplayFor(modelItem => item.senha)</td>
+                <td>@Html.DisplayFor(modelItem => item.salario)</td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm mx-1" asp-action="Edit" asp-route-id="@item.id_funcionario">Editar</a>
+                    <a class="btn btn-outline-info btn-sm mx-1" asp-action="Details" asp-route-id="@item.id_funcionario">Detalhes</a>
+                    <a class="btn btn-outline-danger btn-sm mx-1" asp-action="Delete" asp-route-id="@item.id_funcionario">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<style>
+ 
+    .display-4 {
+        color: #28a745; 
+        font-weight: bold;
+    }
+
+    .table {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+    }
+
+        .table thead th {
+            background-color: #d7f2d7; 
+            color: #28a745;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e8f5e9; 
+        }
+
+  
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+    }
+
+    .btn-outline-primary, .btn-outline-info, .btn-outline-danger {
+        border-width: 2px;
+        font-weight: 500;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-outline-info:hover {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+</style>

@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Saiba Mais";
+}
+
+<div class="container my-5">
+    <!-- Título e Imagem Principal -->
+    <div class="text-center">
+        <h1 class="display-4 text-success">Saiba Mais Sobre Nossa Fazenda Urbana</h1>
+        <p class="lead">Promovendo a sustentabilidade e a agricultura local em Araraquara</p>
+    </div>
+
+    <!-- Seção de Missão -->
+    <section class="mb-5">
+        <h2 class="text-success font-weight-bold">Nossa Missão</h2>
+        <p>Nossa fazenda urbana em Araraquara nasceu da visão de tornar a agricultura mais acessível e sustentável dentro da própria cidade. Estamos comprometidos em cultivar alimentos frescos, sem o uso de pesticidas prejudiciais e com técnicas que respeitam o meio ambiente e as pessoas. Acreditamos que, ao aproximar os alimentos das pessoas, contribuímos para um estilo de vida mais saudável e sustentável para toda a comunidade.</p>
+    </section>
+
+    <!-- Seção de Produtos -->
+    <section class="mb-5">
+        <h2 class="text-success font-weight-bold">Nossos Produtos</h2>
+        <p>Na fazenda, cultivamos uma variedade de produtos frescos e saudáveis, disponíveis para a comunidade local em Araraquara:</p>
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">🌱 <strong>Hortaliças:</strong> Alface, rúcula, espinafre, e muito mais</li>
+            <li class="list-group-item">🍅 <strong>Legumes e Vegetais:</strong> Tomate, cenoura, abobrinha</li>
+            <li class="list-group-item">🍓 <strong>Frutas da Época:</strong> Morangos, amoras e framboesas</li>
+            <li class="list-group-item">🌿 <strong>Ervas Aromáticas:</strong> Manjericão, salsa, cebolinha</li>
+        </ul>
+        <p>Nossos produtos são colhidos semanalmente para garantir o máximo de frescor e qualidade. Também oferecemos kits especiais para quem deseja experimentar uma variedade de itens frescos direto da fazenda!</p>
+    </section>
+
+    <!-- Seção de Impacto Comunitário -->
+    <section class="mb-5">
+        <h2 class="text-success font-weight-bold">Impacto na Comunidade</h2>
+        <p>A fazenda urbana em Araraquara vai além de apenas cultivar alimentos; estamos empenhados em fazer a diferença na comunidade ao:</p>
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">🌍 <strong>Promover a sustentabilidade</strong> com práticas agrícolas conscientes</li>
+            <li class="list-group-item">👩‍🏫 <strong>Educar a comunidade</strong> sobre a importância da alimentação saudável e a agricultura urbana</li>
+            <li class="list-group-item">🤝 <strong>Oferecer oportunidades de voluntariado</strong> e aprendizado em nossa fazenda</li>
+            <li class="list-group-item">🍽️ <strong>Apoiar a segurança alimentar</strong> ao fornecer produtos frescos a preços acessíveis</li>
+        </ul>
+    </section>
+
+    <!-- Botão Voltar -->
+    <div class="text-center mt-4">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Adicione qualquer script adicional se necessário -->
+}
+
+<style>
+    /* Estilos Customizados */
+    .container h1, .container h2 {
+        font-weight: bold;
+    }
+
+    .list-group-item {
+        font-size: 1.1em;
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+</style>

@@ -1,0 +1,87 @@
+﻿@model fazenda2.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Detalhes do Funcionário";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Detalhes do Funcionário</h1>
+</div>
+
+<div class="container">
+    <h4>Informações do Funcionário</h4>
+    <hr />
+
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.nome)</td>
+                <td>@Html.DisplayFor(model => model.nome)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.cpf)</td>
+                <td>@Html.DisplayFor(model => model.cpf)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.email)</td>
+                <td>@Html.DisplayFor(model => model.email)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.senha)</td>
+                <td>@Html.DisplayFor(model => model.senha)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.salario)</td>
+                <td>@Html.DisplayFor(model => model.salario)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a class="btn btn-outline-primary mx-2" asp-action="Edit" asp-route-id="@Model?.id_funcionario">Editar</a>
+        <a class="btn btn-outline-secondary mx-2" asp-action="Index">Voltar</a>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    /* Estilo do Título */
+    .display-4 {
+        color: #28a745; /* Cor verde para o título */
+        font-weight: bold;
+    }
+
+    /* Estilo do Container */
+    .container {
+        margin-top: 20px;
+    }
+
+    /* Estilo da Tabela */
+    .table {
+        margin-top: 20px;
+        background-color: #f9f9f9; /* Cor de fundo da tabela */
+    }
+
+    /* Estilo dos Botões */
+    .btn-outline-primary, .btn-outline-secondary {
+        font-weight: 500;
+        border-width: 2px;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #e2e6ea;
+            color: #495057;
+        }
+</style>

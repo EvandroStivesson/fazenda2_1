@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Pagina inicial";
+}
+
+<!-- Banner Principal -->
+<div class="jumbotron text-center bg-success text-white py-5" style="background-image: url('/images/farm-banner.jpg'); background-size: cover; background-position: center;">
+    <h1 class="display-3 font-weight-bold">Bem-vindo(a) :)</h1>
+    <p class="lead">Cultivando alimentos frescos e saudáveis no coração da cidade</p>
+    <a asp-controller="Home" asp-action="SaibaMais" class="btn btn-light btn-lg mt-3">Saiba Mais</a>
+</div>
+
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://conexaoplaneta.com.br/wp-content/uploads/2016/11/fazendas-urbanas-espalham-telhados-nova-york-chicago-conexao-planeta.jpg" alt="Imagem da fazenda urbana" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-success font-weight-bold">Sobre Nossa Fazenda Urbana</h2>
+            <p>Oferecemos uma variedade de alimentos frescos e cultivados com cuidado em plena área urbana. Nosso objetivo é promover a sustentabilidade e oferecer produtos de alta qualidade diretamente da nossa fazenda para a sua mesa.</p>
+            <ul>
+                <li>Produção sustentável e ecológica</li>
+                <li>Alimentos frescos e livres de agrotóxicos</li>
+                <li>Colheitas semanais disponíveis para compra</li>
+            </ul>
+            <a asp-controller="Produtos" asp-action="Index" class="btn btn-success mt-3">Nossos Produtos</a>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h2 class="text-success font-weight-bold">Nossos Serviços</h2>
+        <p>Oferecemos uma gama de serviços para promover uma vida mais sustentável</p>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <img src="https://jpimg.com.br/uploads/2019/11/erl8038.jpg" alt="Cultivo" class="mb-3" width="100%">
+                <h4>Cultivo Urbano</h4>
+                <a class="btn btn-success" href="https://pactocontrafome.org/agricultura-urban/">Aprenda sobre cultivo urbano</a>
+            </div>
+            <div class="col-md-4">
+                <img src="https://classic.exame.com/wp-content/uploads/2022/08/Upward-Farms-Farming2-copiar.jpg?quality=70&strip=info&w=1024" alt="Venda de Produtos" class="mb-3" width="100%
+">
+                <h4>Venda de Produtos</h4>
+                <a class="btn btn-success" asp-controller="Vendas" asp-action="Index">Realizar vendas</a>
+            </div>
+            <div class="col-md-4">
+                <h4>Consultoria Sustentável</h4>
+                <p>Ajudamos você a tornar seu ambiente mais verde e sustentável.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

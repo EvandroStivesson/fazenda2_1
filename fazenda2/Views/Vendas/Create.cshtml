@@ -1,0 +1,101 @@
+﻿@model fazenda2.Models.Venda
+
+@{
+    ViewData["Title"] = "Criar Venda";
+}
+
+<h1>Criar Venda</h1>
+
+<h4>Venda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ClienteId" class="control-label"></label>
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.Clientes"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataVenda" class="control-label"></label>
+                <input asp-for="DataVenda" class="form-control" />
+                <span asp-validation-for="DataVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input type="number" type="text" asp-for="Total" class="form-control" disabled />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+
+            <h5>Produtos</h5>
+            <div id="produtosContainer">
+                @foreach (var produto in ViewBag.Produtos)
+                {
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="produto-@produto.ProdutoId" name="ProdutoIds" value="@produto.ProdutoId" />
+                            <label class="form-check-label" for="produto-@produto.ProdutoId">
+                            @produto.Nome - Preço: @produto.Preco - Estoque: @produto.Quantidade
+                            </label>
+                            <input type="number" id="produto-@produto.ProdutoId" class="form-control quantidade-produto" name="Quantidades" min="0" max="@produto.Quantidade" placeholder="Quantidade" data-preco="@produto.Preco" />
+                        </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+            $(document).ready(function () {
+                let quantidades = $('input[name="Quantidades"]');
+                let checkboxes = $('input[name="ProdutoIds"]');
+                function calcularTotal() {
+                    let total = 0;
+                    quantidades.each(function () {
+                        let gId = $(this).attr('id');
+                        let checkbox = $(`input[name="ProdutoIds"][id=${gId}]`);
+                    
+                        if (checkbox.is(':checked')) {
+                            const quantidade = parseInt($(this).val()) || 0; // Pega a quantidade
+                            const preco = parseFloat($(this).data('preco')) || 0; // Pega o preço do data attribute
+                            total += quantidade * preco; // Soma ao total
+                        }
+                        else {
+                            $(this).val(null);
+                        }
+                        
+                    });
+                    $('input[name="Total"]').val(total.toFixed(2)); // Atualiza o campo Total
+                }
+
+                function resetarValor() {
+                    quantidades.each(function () {
+                        let gId = $(this).attr('id');
+                        let checkbox = $(`input[name="ProdutoIds"][id=${gId}]`);
+
+                        if (checkbox.is(':checked')) {                            
+                            if ($(this).val() === '') {
+                                $(this).val(0);
+                            }
+                        }
+                    });
+                    calcularTotal();
+                }
+                // Chama calcularTotal sempre que a quantidade mudar
+                checkboxes.on('input change', resetarValor);
+                quantidades.on('input change', calcularTotal);
+            });
+        </script>
+}

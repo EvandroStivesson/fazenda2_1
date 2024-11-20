@@ -1,0 +1,86 @@
+﻿@model fazenda2.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Criar Funcionário";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4 text-success">Criar Funcionário</h1>
+    <h4 class="lead">Preencha as informações abaixo para adicionar um novo funcionário.</h4>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="nome" class="control-label"></label>
+                    <input asp-for="nome" class="form-control" />
+                    <span asp-validation-for="nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cpf" class="control-label"></label>
+                    <input asp-for="cpf" class="form-control" />
+                    <span asp-validation-for="cpf" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="senha" class="control-label"></label>
+                    <input asp-for="senha" class="form-control" type="password" />
+                    <span asp-validation-for="senha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="salario" class="control-label"></label>
+                    <input type="number" asp-for="salario" class="form-control" />
+                    <span asp-validation-for="salario" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Criar" class="btn btn-success mb-2" />
+                    <div>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Voltar para a Lista</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<style>
+  
+    .display-4 {
+        color: #28a745; 
+        font-weight: bold;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+    }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #e2e6ea;
+            color: #495057;
+        }
+</style>

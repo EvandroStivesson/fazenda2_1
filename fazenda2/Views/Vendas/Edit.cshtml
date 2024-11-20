@@ -1,0 +1,61 @@
+﻿@model fazenda2.Models.Venda
+
+@{
+    ViewData["Title"] = "Editar Venda";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1>Editar Venda</h1>
+    <h4>Atualize as informações da venda</h4>
+    <hr />
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Formulário de Edição -->
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="VendaId" />
+
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label asp-for="ClienteId" class="control-label"></label>
+                                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                                <span asp-validation-for="ClienteId" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="DataVenda" class="control-label"></label>
+                                <input asp-for="DataVenda" class="form-control" />
+                                <span asp-validation-for="DataVenda" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="Total" class="control-label"></label>
+                                <input type="number" asp-for="Total" class="form-control" />
+                                <span asp-validation-for="Total" class="text-danger"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-center">
+                    <input type="submit" value="Salvar" class="btn btn-primary me-2" /> <!-- Margem à direita -->
+                    <a asp-action="Index" class="btn btn-outline-secondary">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

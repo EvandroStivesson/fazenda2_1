@@ -1,0 +1,72 @@
+﻿@model fazenda2.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes do Cliente";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1>Detalhes do Cliente</h1>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4>Informações do Cliente</h4>
+            <hr />
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Nome)</td>
+                        <td>@Html.DisplayFor(model => model.Nome)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Email)</td>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Compras</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código da Venda</th>
+                        <th>Data da Venda</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Vendas != null && Model.Vendas.Any())
+                    {
+                        foreach (var venda in Model.Vendas)
+                        {
+                            <tr>
+                                <td>@venda.VendaId</td>
+                                <td>@venda.DataVenda.ToShortDateString()</td>
+                                <td>@venda.Total.ToString("C")</td> <!-- Formata o total como moeda -->
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3">Nenhuma compra registrada.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="text-center">
+                <a asp-action="Edit" asp-route-id="@Model.ClienteId" class="btn btn-primary mx-2">Editar Cliente</a>
+                <a asp-action="Index" class="btn btn-secondary mx-2">Voltar</a>
+            </div>
+        </div>
+    </div>
+</div>

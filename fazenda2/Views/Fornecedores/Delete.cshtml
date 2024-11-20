@@ -1,0 +1,56 @@
+﻿@model fazenda2.Models.Fornecedor
+
+@{
+    ViewData["Title"] = "Excluir Fornecedor";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1>Excluir Fornecedor</h1>
+    <h3>Tem certeza de que deseja excluir este fornecedor?</h3>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4>Informações do Fornecedor</h4>
+            <hr />
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Cnpj)</td>
+                        <td>@Html.DisplayFor(model => model.Cnpj)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Nome)</td>
+                        <td>@Html.DisplayFor(model => model.Nome)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Contato)</td>
+                        <td>@Html.DisplayFor(model => model.Contato)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Endereco)</td>
+                        <td>@Html.DisplayFor(model => model.Endereco)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Tipo_produto)</td>
+                        <td>@Html.DisplayFor(model => model.Tipo_produto)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form asp-action="DeleteConfirmed" class="text-center">
+                <input type="hidden" asp-for="FornecedorId" />
+                <input type="submit" value="Excluir" class="btn btn-danger me-2" />
+                <a asp-action="Index" class="btn btn-outline-secondary">Voltar para a Lista</a>
+            </form>
+        </div>
+    </div>
+</div>

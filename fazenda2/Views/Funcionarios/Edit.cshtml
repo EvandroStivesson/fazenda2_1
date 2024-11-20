@@ -1,0 +1,117 @@
+﻿@model fazenda2.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Editar Funcionário";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar Funcionário</h1>
+    <h4>Atualize as informações do funcionário</h4>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="id_funcionario" />
+
+              
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Entrada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label asp-for="nome" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="nome" class="form-control" />
+                                <span asp-validation-for="nome" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="cpf" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="cpf" class="form-control" />
+                                <span asp-validation-for="cpf" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="email" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="email" class="form-control" />
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="senha" class="control-label"></label></td>
+                            <td>
+                                <input type="password" asp-for="senha" class="form-control" />
+                                <span asp-validation-for="senha" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="salario" class="control-label"></label></td>
+                            <td>
+                                <input type="number" asp-for="salario" class="form-control" />
+                                <span asp-validation-for="salario" class="text-danger"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-center">
+                    <input type="submit" value="Salvar" class="btn btn-primary mx-2" />
+                    <a class="btn btn-secondary mx-2" asp-action="Index">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<style>
+    
+    .display-4 {
+        color: #28a745; 
+        font-weight: bold;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+        background-color: #f9f9f9; 
+    }
+
+    .btn-success {
+        font-weight: 500;
+        border-width: 2px;
+    }
+
+    .btn-secondary {
+        font-weight: 500;
+        border-width: 2px;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #e2e6ea;
+        color: #495057;
+    }
+</style>

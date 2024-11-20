@@ -1,0 +1,50 @@
+﻿@model fazenda2.Models.Cliente
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1>Excluir Cliente</h1>
+    <h3>Tem certeza de que deseja excluir este cliente?</h3>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4>Detalhes do Cliente</h4>
+            <hr />
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Nome)</td>
+                        <td>@Html.DisplayFor(model => model.Nome)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Email)</td>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Senha)</td>
+                        <td>@Html.DisplayFor(model => model.Senha)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form asp-action="DeleteConfirmed" class="text-center">
+                <input type="hidden" asp-for="ClienteId" />
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Excluir" class="btn btn-danger mx-2" />
+                    <a asp-action="Index" class="btn btn-outline-secondary mx-2">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

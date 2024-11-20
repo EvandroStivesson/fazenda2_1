@@ -1,0 +1,94 @@
+﻿@model IEnumerable<fazenda2.Models.Produto>
+
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1 class="display-4 text-success">Produtos</h1>
+    <p class="lead">Gerencie os produtos disponíveis em sua loja</p>
+</div>
+
+<!-- Botão para Criar Novo Produto -->
+<div class="mb-4 text-right">
+    <a class="btn btn-success" asp-action="Create">Adicionar Novo Produto</a>
+</div>
+
+<!-- Tabela de Produtos -->
+<table class="table table-hover table-bordered text-center">
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Preco)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Quantidade)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Preco)</td>
+                <td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm mx-1" asp-action="Edit" asp-route-id="@item.ProdutoId">Editar</a>
+                    <a class="btn btn-outline-info btn-sm mx-1" asp-action="Details" asp-route-id="@item.ProdutoId">Detalhes</a>
+                    <a class="btn btn-outline-danger btn-sm mx-1" asp-action="Delete" asp-route-id="@item.ProdutoId">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Estilo do Título */
+    .display-4 {
+        color: #28a745; /* Cor verde */
+        font-weight: bold;
+    }
+
+    /* Estilo da Tabela */
+    .table {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+    }
+
+        .table thead th {
+            background-color: #d7f2d7; /* Verde claro para o cabeçalho */
+            color: #28a745;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e8f5e9; /* Efeito de hover verde claro */
+        }
+
+    /* Estilo dos Botões */
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+    }
+
+    .btn-outline-primary, .btn-outline-info, .btn-outline-danger {
+        border-width: 2px;
+        font-weight: 500;
+        transition: background-color 0.3s, color 0.3s; /* Suaviza a transição de cor */
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-outline-info:hover {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+</style>

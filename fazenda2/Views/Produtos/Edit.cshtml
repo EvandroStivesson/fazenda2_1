@@ -1,0 +1,66 @@
+﻿@model fazenda2.Models.Produto
+
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1>Editar Produto</h1>
+    <h4>Atualize as informações do produto</h4>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProdutoId" />
+
+                <!-- Tabela para Edição de Dados -->
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Entrada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label asp-for="Nome" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="Nome" class="form-control" />
+                                <span asp-validation-for="Nome" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Preco" class="control-label"></label></td>
+                            <td>
+                                <input type="number" asp-for="Preco" class="form-control" />
+                                <span asp-validation-for="Preco" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Quantidade" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="Quantidade" class="form-control" />
+                                <span asp-validation-for="Quantidade" class="text-danger"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-center">
+                    <input type="submit" value="Salvar" class="btn btn-primary mx-2" />
+                    <a asp-action="Index" class="btn btn-outline-secondary mx-2">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

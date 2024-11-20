@@ -1,0 +1,107 @@
+﻿@model IEnumerable<fazenda2.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Lista de Fornecedores";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1 class="display-4 text-success">Fornecedores</h1>
+    <p class="lead">Gerencie as informações dos fornecedores cadastrados</p>
+</div>
+
+<!-- Botão para Criar Novo Fornecedor -->
+<div class="mb-4 text-right">
+    <a asp-action="Create" class="btn btn-success">Adicionar Novo Fornecedor</a>
+</div>
+
+<!-- Tabela de Fornecedores -->
+<table class="table table-hover table-bordered text-center">
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Cnpj)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Contato)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Endereco)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Tipo_produto)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null || !Model.Any())
+        {
+            <tr>
+                <td colspan="6" class="text-center">Nenhum fornecedor registrado.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Cnpj)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Contato)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Endereco)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tipo_produto)</td>
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm mx-1" asp-action="Edit" asp-route-id="@item.FornecedorId">Editar</a>
+                        <a class="btn btn-outline-info btn-sm mx-1" asp-action="Details" asp-route-id="@item.FornecedorId">Detalhes</a>
+                        <a class="btn btn-outline-danger btn-sm mx-1" asp-action="Delete" asp-route-id="@item.FornecedorId">Excluir</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<!-- Estilos CSS -->
+<style>
+    /* Estilo do Título */
+    .display-4 {
+        color: #28a745; /* Cor verde */
+        font-weight: bold;
+    }
+
+    /* Estilo da Tabela */
+    .table {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+    }
+
+    .table thead th {
+        background-color: #d7f2d7; /* Verde claro para o cabeçalho */
+        color: #28a745;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e8f5e9; /* Efeito de hover verde claro */
+    }
+
+    /* Estilo dos Botões */
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+    }
+
+    .btn-outline-primary, .btn-outline-info, .btn-outline-danger {
+        border-width: 2px;
+        font-weight: 500;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-outline-info:hover {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>

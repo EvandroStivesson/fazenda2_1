@@ -1,0 +1,54 @@
+﻿@model fazenda2.Models.Venda
+
+@{
+    ViewData["Title"] = "Excluir Venda";
+}
+
+<!-- Título Principal -->
+<div class="text-center">
+    <h1>Excluir Venda</h1>
+    <h3>Tem certeza de que deseja excluir esta venda?</h3>
+</div>
+<hr/>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4>Detalhes da Venda</h4>
+            <hr />
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>@Html.DisplayNameFor(model => model.DataVenda)</strong>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.DataVenda)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>@Html.DisplayNameFor(model => model.Total)</strong>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Total)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>@Html.DisplayNameFor(model => model.Cliente)</strong>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Cliente.Nome) <!-- Altere para Nome se for o que deseja mostrar -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form asp-action="DeleteConfirmed" class="text-center">
+                <input type="hidden" asp-for="VendaId" />
+                <input type="submit" value="Excluir" class="btn btn-danger me-2" /> <!-- Botão de exclusão -->
+                <a asp-action="Index" class="btn btn-outline-secondary">Voltar para a Lista</a> <!-- Botão de voltar -->
+            </form>
+        </div>
+    </div>
+</div>
